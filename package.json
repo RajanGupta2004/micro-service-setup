@@ -1,0 +1,28 @@
+{
+  "name": "axis-dip-uw",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Axis DIP and underwriting proof of concept",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:gateway": "npm run dev --workspace=@axis/api-gateway",
+    "dev:application": "npm run dev --workspace=@axis/application-service",
+    "dev:documents": "npm run dev --workspace=@axis/document-service",
+    "dev:orchestrator": "npm run dev --workspace=@axis/decision-orchestrator",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

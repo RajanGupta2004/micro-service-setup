@@ -1,17 +1,9 @@
 import { createServer } from "node:http";
+import app from "./app";
 
 const port = Number(process.env.PORT ?? 3002);
 
-const server = createServer((request, response) => {
-  if (request.url === "/health" && request.method === "GET") {
-    response.writeHead(200, { "content-type": "application/json" });
-    response.end(JSON.stringify({ service: "document-service", status: "ok" }));
-    return;
-  }
-
-  response.writeHead(404, { "content-type": "application/json" });
-  response.end(JSON.stringify({ error: "Not found" }));
-});
+const server = createServer(app);
 
 server.listen(port, () => {
   console.log(`document-service listening on http://localhost:${port}`);
